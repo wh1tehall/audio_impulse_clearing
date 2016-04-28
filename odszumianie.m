@@ -17,7 +17,7 @@ etm=abs(samples(1))
 outsamples=[zeros(1,lp)]
 tt(p-2)=start;
 tt(p-1)=time()-start;
-lambda=0.7
+lambda=0.1
  
 P=[];
 for i=1:p
