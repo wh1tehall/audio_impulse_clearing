@@ -59,10 +59,10 @@ for i=p:samples_length
     if abs(eta)>3*etm
 		
       #outsamples(i)= samples(i-1);
-	  kpom=outsamples(i-1:i-5)
-	  ipom=1
+	  kpom=outsamples(i-1:i-5);
+	  ipom=1;
 	  while ipom<7
-	    ppom=abs((w*kpom')-samples(i+ipom))
+	    ppom=abs((w*kpom)-samples(i+ipom))
 		if ppom<3*etm
 			outsamples(i)=(samples(i-1)+samples(i+ipom))/2
 			ipom=7
