@@ -17,7 +17,7 @@ etm=abs(samples(1))
 outsamples=[zeros(1,lp)]
 tt(p-2)=start;
 tt(p-1)=time()-start;
-lambda=0.1
+lambda=0.9
  
 P=[];
 for i=1:p
@@ -56,8 +56,19 @@ for i=p:samples_length
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
   else
-    if abs(eta)>0.06
-      outsamples(i)= samples(i-1);
+    if abs(eta)>3*etm
+		
+      #outsamples(i)= samples(i-1);
+	  kpom=outsamples(i-1:i-5)
+	  impom=1
+	  while ipom<7
+		if abs((w*kpom')-samples(i+ipom))<3*etm
+			outsamples(i)=(samples(i-1)+samples(i+ipom))/2
+			ipom=7
+		endif
+		ipom=ipom+1
+	  endwhile
+	  
     else
    
       etm=(etm+abs(eta))/2;
