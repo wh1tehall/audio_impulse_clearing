@@ -62,7 +62,8 @@ for i=p:samples_length
 	  kpom=outsamples(i-1:i-5)
 	  ipom=1
 	  while ipom<7
-		if abs((w*kpom')-samples(i+ipom))<3*etm
+	    ppom=abs((w*kpom')-samples(i+ipom))
+		if ppom<3*etm
 			outsamples(i)=(samples(i-1)+samples(i+ipom))/2
 			ipom=7
 		endif
