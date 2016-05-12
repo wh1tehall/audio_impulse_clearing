@@ -60,7 +60,7 @@ for i=p:samples_length
 		
       #outsamples(i)= samples(i-1);
 	  kpom=outsamples(i-1:i-5)
-	  impom=1
+	  ipom=1
 	  while ipom<7
 		if abs((w*kpom')-samples(i+ipom))<3*etm
 			outsamples(i)=(samples(i-1)+samples(i+ipom))/2
