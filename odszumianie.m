@@ -39,8 +39,8 @@ for i=p:samples_length
  
   #estymacja:
   pom=outsamples(length(outsamples)-p+1:length(outsamples));
-  x=pom';
-  out=x*w';
+  x=pom;
+  out=x*w;
   eta=y-out;
   et(i)=abs(eta);
   etx(i)=etm;
@@ -60,7 +60,7 @@ for i=p:samples_length
 		
       #outsamples(i)= samples(i-1);
 
-	  kpom=outsamples(i-4:i-1);
+	  kpom=outsamples(i-4:i-1)';
 	  
 	  #***DEBUG***
 	  disp(i)
@@ -72,9 +72,9 @@ for i=p:samples_length
 	  
 	  ipom=1;
 	  while ipom<7
-	    w*kpom
+	    w'*kpom
 		samples(i+ipom);
-	    ppom=abs((w*kpom)-samples(i+ipom));
+	    ppom=abs((w'*kpom)-samples(i+ipom));
 		if ppom<3*etm
 			outsamples(i)=(samples(i-1)+samples(i+ipom))/2;
 			ipom=7;
