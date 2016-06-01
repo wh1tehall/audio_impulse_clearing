@@ -43,6 +43,9 @@ for i=p:samples_length
   out=x*w;
   eta=y-out;
   #***DEBUG***
+  disp(out)
+  disp(w)
+  disp(x)
   disp(eta)
   #***DEBUG***
   et(i)=abs(eta);
