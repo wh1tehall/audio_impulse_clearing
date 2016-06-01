@@ -62,6 +62,7 @@ for i=p:samples_length
 	  kpom=outsamples(i-1:i-5);
 	  disp(kpom)
 	  disp(w)
+	  save outsamples.mat outsamples
 	  ipom=1;
 	  while ipom<7
 	    w*kpom'
