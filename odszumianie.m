@@ -60,7 +60,7 @@ for i=p:samples_length
 		
       #outsamples(i)= samples(i-1);
 
-	  kpom=outsamples(i-1:i-5)
+	  kpom=outsamples(i-5:i-1)
 	  
 	  #***DEBUG***
 	  disp(i)
