@@ -59,7 +59,8 @@ for i=p:samples_length
     if abs(eta)>3*etm
 		
       #outsamples(i)= samples(i-1);
-	  kpom=outsamples(i-1:i-5);
+	  disp(i)
+	  kpom=outsamples(i-1:i-5)
 	  disp(kpom)
 	  disp(w)
 	  save outsamples.mat outsamples
