@@ -59,11 +59,17 @@ for i=p:samples_length
     if abs(eta)>3*etm
 		
       #outsamples(i)= samples(i-1);
+	  
+	  #***DEBUG***
 	  disp(i)
-	  kpom=outsamples(i-1:i-5)
+	  disp(length(outsamples))
 	  disp(kpom)
 	  disp(w)
 	  save outsamples.mat outsamples
+	  #***DEBUG***
+	  
+	  kpom=outsamples(i-1:i-5)
+	  
 	  ipom=1;
 	  while ipom<7
 	    w*kpom'
