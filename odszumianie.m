@@ -51,7 +51,7 @@ for i=p:samples_length
     #Obliczenia wzmocnienia RLS
       xp=x';
       Px=P*xp;
-     
+
       k=(Px)/(1+x*Px);
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
@@ -59,7 +59,9 @@ for i=p:samples_length
     if abs(eta)>3*etm
 		
       #outsamples(i)= samples(i-1);
-	  kpom=outsamples(1,i-1:i-5);
+	  kpom=outsamples(i-1:i-5);
+	  disp(kpom)
+	  disp(w)
 	  ipom=1;
 	  while ipom<7
 	    w*kpom'
