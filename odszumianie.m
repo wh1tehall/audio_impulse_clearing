@@ -14,7 +14,7 @@ etx=samples*0;
 tt=samples*0;
 outsamples=samples*0;
 etm=abs(samples(1))
-outsamples=[zeros(1,lp)]
+#outsamples=[zeros(1,lp)]
 tt(p-2)=start;
 tt(p-1)=time()-start;
 lambda=0.9
@@ -60,26 +60,26 @@ for i=p:samples_length
 		
       #outsamples(i)= samples(i-1);
 
-	  kpom=outsamples(i-4:i-1)
+	  kpom=outsamples(i-4:i-1);
 	  
 	  #***DEBUG***
 	  disp(i)
 	  disp(length(outsamples))
 	  disp(kpom)
 	  disp(w)
-	  save outsamples.mat outsamples
+	  save outsamples.mat outsamples;
 	  #***DEBUG***
 	  
 	  ipom=1;
 	  while ipom<7
 	    w*kpom'
-		samples(i+ipom)
-	    ppom=abs((w*kpom')-samples(i+ipom))
+		samples(i+ipom);
+	    ppom=abs((w*kpom')-samples(i+ipom));
 		if ppom<3*etm
-			outsamples(i)=(samples(i-1)+samples(i+ipom))/2
-			ipom=7
+			outsamples(i)=(samples(i-1)+samples(i+ipom))/2;
+			ipom=7;
 		endif
-		ipom=ipom+1
+		ipom=ipom+1;
 	  endwhile
 	  
     else
