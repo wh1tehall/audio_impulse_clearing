@@ -72,7 +72,7 @@ for i=p:samples_length
 	  
 	  ipom=1;
 	  while ipom<7
-	    w*kpom
+	    w*kpom'
 		samples(i+ipom)
 	    ppom=abs((w*kpom)-samples(i+ipom))
 		if ppom<3*etm
