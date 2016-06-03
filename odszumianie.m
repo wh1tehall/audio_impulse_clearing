@@ -43,13 +43,18 @@ for i=p:samples_length
   out=x*w;
   eta=y-out;
   #***DEBUG***
-  disp(out)
-  disp(w)
-  disp(x)
+  #disp(out)
+  #disp(w)
+  #disp(x)
+  disp("eta")
   disp(eta)
+  disp("et(i)")
+  disp(et(1));
   #***DEBUG***
+  
   et(i)=abs(eta);
   etx(i)=etm;
+  
   if (i<100)
     outsamples(i)=y;
    
