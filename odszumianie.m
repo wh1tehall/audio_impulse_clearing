@@ -39,7 +39,7 @@ for i=p:samples_length
  
   #estymacja:
   pom=outsamples(length(outsamples)-p+1:length(outsamples));
-  x=pom;
+  x=pom';
   out=x*w;
   eta=y-out;
   #***DEBUG***
