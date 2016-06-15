@@ -69,7 +69,7 @@ for i=p:samples_length
   else
     if abs(eta)>3*etm
 		
-      #outsamples(i)= samples(i-1);
+      outsamples(i)= samples(i-1);
 
 	  kpom=outsamples(i-4:i-1)';
 	  
