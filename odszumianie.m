@@ -70,7 +70,7 @@ for i=p:samples_length
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
   else
-    if abs(eta)>3.1*etm
+    if abs(eta)>2.8*etm
 		
       outsamples(i)= (samples(i-1));#+samples(i+5))/2;
 
