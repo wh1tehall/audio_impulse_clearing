@@ -1,7 +1,8 @@
 start=time();
 [samples,fs] = wavread("03.wav");
 samples_length = length(samples);
- 
+
+debug=0 
 p=4;
 lp=4; #długosć pamięci dla estymatora
 x=zeros(1,p); #wpółczynniki estymowanej funkcji
@@ -43,6 +44,7 @@ for i=p:samples_length
   out=x*w';
   eta=y-out;
   #***DEBUG***
+  if (debug=1)
   #disp(out)
   #disp(w)
   #disp(x)
@@ -50,6 +52,7 @@ for i=p:samples_length
   disp(eta)
   disp("et(i)")
   disp(et(1));
+  endif
   #***DEBUG***
   
   et(i)=abs(eta);
@@ -69,29 +72,32 @@ for i=p:samples_length
   else
     if abs(eta)>3*etm
 		
-      outsamples(i)= samples(i-1);
+      outsamples(i)= (samples(i-1)+samples(i+5))/2;
 
 	  kpom=outsamples(i-4:i-1)';
 	  
 	  #***DEBUG***
-	  disp(i)
-	  disp(length(outsamples))
-	  disp(kpom)
-	  disp(w)
-	  save outsamples.mat outsamples;
+	  if (debug=1)
+		disp(i)
+		disp(length(outsamples))
+		disp(kpom)
+		disp(w)
+		#save outsamples.mat outsamples;
+	  endif
 	  #***DEBUG***
 	  
-	  ipom=1;
-	  while ipom<5
-	    w'*kpom #???
-		samples(i+ipom);
-	    ppom=abs((w'*kpom)-samples(i+ipom));
-		if ppom<3*etm
-			outsamples(i)=(samples(i-1)+samples(i+ipom))/2;
-			ipom=5;
-		endif
-		ipom=ipom+1;
-	  endwhile
+	  
+	  % ipom=1;
+	  % while ipom<5
+	    % w'*kpom #???
+		% samples(i+ipom);
+	    % ppom=abs((w'*kpom)-samples(i+ipom));
+		% if ppom<3*etm
+			% outsamples(i)=(samples(i-1)+samples(i+ipom))/2;
+			% ipom=5;
+		% endif
+		% ipom=ipom+1;
+	  % endwhile
 	  
     else
    
