@@ -18,7 +18,7 @@ etm=abs(samples(1))
 #outsamples=[zeros(1,lp)]
 tt(p-2)=start;
 tt(p-1)=time()-start;
-lambda=0.9
+lambda=0.985
  
 P=[];
 for i=1:p
@@ -70,9 +70,9 @@ for i=p:samples_length
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
   else
-    if abs(eta)>3*etm
+    if abs(eta)>3.1*etm
 		
-      outsamples(i)= (samples(i-1)+samples(i+5))/2;
+      outsamples(i)= (samples(i-1));#+samples(i+5))/2;
 
 	  kpom=outsamples(i-4:i-1)';
 	  
@@ -87,17 +87,17 @@ for i=p:samples_length
 	  #***DEBUG***
 	  
 	  
-	  % ipom=1;
-	  % while ipom<5
-	    % w'*kpom #???
-		% samples(i+ipom);
-	    % ppom=abs((w'*kpom)-samples(i+ipom));
-		% if ppom<3*etm
-			% outsamples(i)=(samples(i-1)+samples(i+ipom))/2;
-			% ipom=5;
-		% endif
-		% ipom=ipom+1;
-	  % endwhile
+	  ipom=1;
+	  while ipom<5
+	    w'*kpom #???
+		samples(i+ipom);
+	    ppom=abs((w'*kpom)-samples(i+ipom));
+		if ppom<3*etm
+			outsamples(i)=(samples(i-1)+samples(i+ipom))/2;
+			ipom=5;
+		endif
+		ipom=ipom+1;
+	  endwhile
 	  
     else
    
@@ -138,4 +138,4 @@ for i=p:samples_length
  title("czas wykonania")
  #wavwrite(outsamples,fs,'out.wav')
  en=time();
- en-start
+ disp((en-start)/60)
