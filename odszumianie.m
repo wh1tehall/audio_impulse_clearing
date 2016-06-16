@@ -33,7 +33,7 @@ for i=1:p
   P=[P;Pp];
 endfor
 999999*P
- 
+disp(samples_length)
 for i=p:samples_length
  
   y=samples(i);
@@ -44,14 +44,14 @@ for i=p:samples_length
   out=x*w';
   eta=y-out;
   #***DEBUG***
-  if (debug=1)
-  #disp(out)
-  #disp(w)
-  #disp(x)
-  disp("eta")
-  disp(eta)
-  disp("et(i)")
-  disp(et(1));
+  if (debug==1)
+    #disp(out)
+    #disp(w)
+    #disp(x)
+    disp("eta")
+    disp(eta)
+    disp("et(i)")
+    disp(et(1));
   endif
   #***DEBUG***
   
@@ -61,7 +61,7 @@ for i=p:samples_length
   if (i<100)
     outsamples(i)=y;
    
-    etm=(etm+abs(eta))/2
+    etm=(etm+abs(eta))/2;
     #Obliczenia wzmocnienia RLS
       xp=x';
       Px=P*xp;
@@ -77,12 +77,12 @@ for i=p:samples_length
 	  kpom=outsamples(i-4:i-1)';
 	  
 	  #***DEBUG***
-	  if (debug=1)
-		disp(i)
-		disp(length(outsamples))
-		disp(kpom)
-		disp(w)
-		#save outsamples.mat outsamples;
+	  if (debug==1)
+      disp(i)
+      disp(length(outsamples))
+      disp(kpom)
+      disp(w)
+      #save outsamples.mat outsamples;
 	  endif
 	  #***DEBUG***
 	  
@@ -114,6 +114,9 @@ for i=p:samples_length
     endif
   endif
   tt(i)=time()-tt(i-1);
+  if (mod(i,10000)==0)
+    disp(i)
+  endif
  endfor
  plot(et);
  title("eta")
