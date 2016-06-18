@@ -57,9 +57,11 @@ for i=p:samples_length
       P=P-(Px*x*P)/(1+x*Px);
   else
     if abs(eta)>3*etm
-      outsamples(i)= (samples(i-1)+samples(i+5))/2;
-	  
-	  
+		if i+5>samples_length
+			outsamples(i-1);
+		else
+			outsamples(i)= (samples(i-1)+samples(i+5))/2;
+		endif
     else
    
       etm=(etm+abs(eta))/2;
