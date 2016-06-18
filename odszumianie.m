@@ -96,6 +96,6 @@ for i=p:samples_length
  figure()
  plot(tt)
  title("czas wykonania")
- #wavwrite(outsamples,fs,'out.wav')
+ wavwrite(outsamples,fs,'out.wav')
  en=time();
  en-start
