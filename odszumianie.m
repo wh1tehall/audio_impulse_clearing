@@ -56,7 +56,7 @@ for i=p:samples_length
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
   else
-    if abs(eta)>0.01
+    if abs(eta)>0.04
 		if i+5>samples_length
 			outsamples(i-1);
 		else
