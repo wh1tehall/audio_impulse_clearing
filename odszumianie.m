@@ -60,7 +60,7 @@ for i=p:samples_length
 		if i+5>samples_length
 			outsamples(i-1);
 		else
-			outsamples(i)= (samples(i-1)+samples(i+5))/2;
+			outsamples(i)= (samples(i-1)+samples(i+5))/6;
 		endif
     else
    
