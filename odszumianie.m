@@ -57,7 +57,9 @@ for i=p:samples_length
       P=P-(Px*x*P)/(1+x*Px);
   else
     if abs(eta)>0.06
-      outsamples(i)= samples(i-1);
+      outsamples(i)= (samples(i-1)+samples(i+4))/2;
+	  
+	  
     else
    
       etm=(etm+abs(eta))/2;
