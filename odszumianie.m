@@ -88,7 +88,7 @@ while i<samples_length #=p:samples_length
       P=(P-(Px*x*P)/(1+x*Px))/lambda;
     endif
   endif
-  tt(i)=time()-tt(i-1);
+  #tt(i)=time()-tt(i-1);
   i=i+1;
  end
  plot(et);
