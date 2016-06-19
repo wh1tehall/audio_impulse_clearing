@@ -57,11 +57,22 @@ for i=p:samples_length
       P=P-(Px*x*P)/(1+x*Px);
   else
     if abs(eta)>3*etm
-		if i+5>samples_length
-			outsamples(i-1);
-		else
-			outsamples(i)= (samples(i-1)+samples(i+5))/6;
-		endif
+		% if i+5>samples_length
+			% outsamples(i-1);
+		% else
+			% outsamples(i)= (samples(i-1)+samples(i+5))/6;
+		% endif
+		etq=abs(eta)
+		j=1
+		while (etq>3*etm || j=5)
+			pomq=outsamples(length(outsamples)-p+1:length(outsamples));
+			x=pomq;
+			out=x*w';
+			etq=y-out;
+			j=j+1;
+			outsamples(i+j)=outsamples(i-1)
+		end
+			i=i+j-1;
     else
    
       etm=(etm+abs(eta))/2;
