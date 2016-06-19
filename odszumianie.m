@@ -64,7 +64,7 @@ for i=p:samples_length
 		% endif
 		etq=abs(eta)
 		j=1
-		while (etq>3*etm || j=5)
+		while (etq>3*etm && j==5)
 			pomq=outsamples(length(outsamples)-p+1:length(outsamples));
 			x=pomq;
 			out=x*w';
