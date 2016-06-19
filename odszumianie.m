@@ -69,7 +69,7 @@ while i<samples_length #=p:samples_length
 			pomq=outsamples(length(outsamples)-p+1:length(outsamples));
 			x=pomq;
 			out=x*w';
-			etq=y-out;
+			etq=abs(y-out);
 			outsamples(i+j)=outsamples(i-1);
 			j=j+1;
 		end
