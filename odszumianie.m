@@ -32,8 +32,9 @@ for i=1:p
   P=[P;Pp];
 endfor
 999999*P
- 
-for i=p:samples_length
+
+i=p
+while i<samples_length #=p:samples_length
  
   y=samples(i);
  
@@ -88,7 +89,8 @@ for i=p:samples_length
     endif
   endif
   tt(i)=time()-tt(i-1);
- endfor
+  i=i+1;
+ end
  plot(et);
  title("eta")
  print -dpdf eta.pdf
