@@ -70,10 +70,14 @@ while i<samples_length #=p:samples_length
 			x=pomq;
 			out=x*w';
 			etq=sqrt((y-out)^2);
-			outsamples(i+j)=outsamples(i-1);
+			%outsamples(i+j)=outsamples(i-1);
 			j=j+1;
 		end
-			i=i+j-1;
+		iint=(outsamples(i-1)+outsamples(i+j-1))/2;
+		for il=1:j-1
+			outsamples(i+il)=iint;
+		endfor
+		i=i+j-1;
     else
    
       etm=(etm+sqrt(eta^2))/2;
