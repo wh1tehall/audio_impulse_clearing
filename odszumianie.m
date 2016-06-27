@@ -73,7 +73,7 @@ while i<samples_length #=p:samples_length
 			%outsamples(i+j)=outsamples(i-1);
 			j=j+1;
 		end
-		disp(lenght(outsamples))
+		disp(length(outsamples))
 		iint=(outsamples(i-1)+outsamples(i+j-1))/2;
 		for il=1:j-1
 			outsamples(i+il)=iint;
