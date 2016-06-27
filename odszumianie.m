@@ -13,7 +13,7 @@ et=samples*0;
 etx=samples*0;
 tt=samples*0;
 outsamples=samples*0;
-etm=abs(samples(1))
+etm=sqrt(samples(1)^2)
 outsamples=[zeros(1,lp)]
 tt(p-2)=start;
 tt(p-1)=time()-start;
@@ -42,12 +42,12 @@ for i=p:samples_length
   x=pom;
   out=x*w';
   eta=y-out;
-  et(i)=abs(eta);
+  et(i)=sqrt(eta^2);
   etx(i)=etm;
   if (i<100)
     outsamples(i)=y;
    
-    etm=(etm+abs(eta))/2
+    etm=(etm+sqrt(eta^2))/2
     #Obliczenia wzmocnienia RLS
       xp=x';
       Px=P*xp;
@@ -56,11 +56,11 @@ for i=p:samples_length
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
   else
-    if abs(eta)>0.06
+    if sqrt(eta^2)>0.06
       outsamples(i)= samples(i-1);
     else
    
-      etm=(etm+abs(eta))/2;
+      etm=(etm+sqrt(eta^2)))/2;
      
       outsamples(i)=y;
       #Obliczenia wzmocnienia RLS
