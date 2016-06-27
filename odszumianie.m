@@ -48,7 +48,7 @@ while i<samples_length #=p:samples_length
   if (i<100)
     outsamples(i)=y;
    
-    etm=(etm+sqrt(eta^2))/2
+    etm=(etm+sqrt(eta^2))/2;
     #Obliczenia wzmocnienia RLS
       xp=x';
       Px=P*xp;
@@ -73,6 +73,7 @@ while i<samples_length #=p:samples_length
 			%outsamples(i+j)=outsamples(i-1);
 			j=j+1;
 		end
+		disp(lenght(outsamples))
 		iint=(outsamples(i-1)+outsamples(i+j-1))/2;
 		for il=1:j-1
 			outsamples(i+il)=iint;
