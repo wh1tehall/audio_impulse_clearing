@@ -40,8 +40,8 @@ while i<samples_length #=p:samples_length
  
   #estymacja:
   pom=outsamples(length(outsamples)-p+1:length(outsamples));
-  x=pom;
-  out=x*w;
+  x=pom';
+  out=x*w';
   eta=y-out;
   et(i)=sqrt(eta^2);
   etx(i)=etm;
