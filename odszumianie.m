@@ -60,7 +60,7 @@ for i=p:samples_length
       outsamples(i)= samples(i-1);
     else
    
-      etm=(etm+sqrt(eta^2)))/2;
+      etm=(etm+sqrt(eta^2))/2;
      
       outsamples(i)=y;
       #Obliczenia wzmocnienia RLS
