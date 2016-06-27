@@ -14,7 +14,7 @@ etx=samples*0;
 tt=samples*0;
 outsamples=samples*0;
 etm=sqrt(samples(1)^2)
-%outsamples=[zeros(1,lp)]
+outsamples=[zeros(1,lp)]
 tt(p-2)=start;
 tt(p-1)=time()-start;
 lambda=0.7
@@ -40,7 +40,7 @@ while i<samples_length #=p:samples_length
  
   #estymacja:
   pom=outsamples(length(outsamples)-p+1:length(outsamples));
-  x=pom';
+  x=pom;
   out=x*w';
   eta=y-out;
   et(i)=sqrt(eta^2);
@@ -115,5 +115,6 @@ while i<samples_length #=p:samples_length
  plot(tt)
  title("czas wykonania")
  wavwrite(outsamples,fs,'out.wav')
+ who
  en=time();
  en-start
