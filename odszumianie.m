@@ -22,7 +22,7 @@ mt=samples(1);
 outsamples=[zeros(1,lp)]
 tt(p-2)=start;
 tt(p-1)=time()-start;
-lambda=0.95
+lambda=0.9
  
 P=[];
 for i=1:p
@@ -64,7 +64,7 @@ for i=p:samples_length
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
   else
-    if eta^2>(3*ets)^2
+    if eta^2>(0.06)^2 || eta^2>(3*ets)^2
       outsamples(i)= outsamples(i-1);
     else
    
