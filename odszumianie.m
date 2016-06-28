@@ -63,8 +63,8 @@ for i=p:samples_length
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
   else
-    if sqrt(eta^2)>3*ets
-      outsamples(i)= samples(i-1);
+    if sqrt(eta^2)>0.06
+      outsamples(i)= outsamples(i-1);
     else
    
 	  mt=(mt+y)/2;
