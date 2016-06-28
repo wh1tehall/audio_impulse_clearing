@@ -13,9 +13,11 @@ et=samples*0;
 etx=samples*0;
 etxs=samples*0;
 tt=samples*0;
+mt=samples*0;
 outsamples=samples*0;
 etm=sqrt(samples(1)^2)
 ets=sqrt(samples(1)^2);
+mt=samples(1);
 outsamples=[zeros(1,lp)]
 tt(p-2)=start;
 tt(p-1)=time()-start;
@@ -50,8 +52,9 @@ for i=p:samples_length
   if (i<100)
     outsamples(i)=y;
    
+    mt=(mt+y)/2
     etm=(etm+sqrt(eta^2))/2
-	ets=(ets+((etm-eta)^2))/2;
+	ets=(ets+((mt-eta)^2))/2;
     #Obliczenia wzmocnienia RLS
       xp=x';
       Px=P*xp;
@@ -64,8 +67,9 @@ for i=p:samples_length
       outsamples(i)= samples(i-1);
     else
    
+	  mt=(mt+y)/2;
       etm=(etm+sqrt(eta^2))/2;
-      ets=(ets+((etm-eta)^2))/2;
+      ets=(ets+((mt-eta)^2))/2;
       outsamples(i)=y;
       #Obliczenia wzmocnienia RLS
       xp=x';
@@ -98,7 +102,7 @@ for i=p:samples_length
  title("czas wykonania")
  print -dpdf tt.pdf
  figure()
- plot(ets)
+ plot(etxs)
  title("sigma")
  print -dpdf ets.pdf
  
