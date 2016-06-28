@@ -1,4 +1,3 @@
-###BEST OUTCOME UP TO THIS POINT - BASE TO REVERT###
 start=time();
 [samples,fs] = wavread("03.wav");
 samples_length = length(samples);
@@ -23,6 +22,11 @@ outsamples=[zeros(1,lp)]
 tt(p-2)=start;
 tt(p-1)=time()-start;
 lambda=0.95
+
+p1=[]
+p2=[]
+p3=[]
+p4=[]
  
 P=[];
 for i=1:p
@@ -63,6 +67,10 @@ for i=p:300
       k=(Px)/(1+x*Px);
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
+	p1=[p1 P(1,1)]
+	p2=[p2 P(1,2)]
+	p3=[p3 P(2,1)]
+	p4=[p4 P(2,2)]
 endfor
 for i=300:samples_length
       y=samples(i);
@@ -93,7 +101,12 @@ for i=300:samples_length
       P=(P-(Px*x*P)/(1+x*Px))/lambda;
     endif
   tt(i)=time()-tt(i-1);
+  p1=[p1 P(1,1)]
+	p2=[p2 P(1,2)]
+	p3=[p3 P(2,1)]
+	p4=[p4 P(2,2)]
  endfor
+ 
  plot(et);
  title("eta")
  print -dpdf eta.pdf
@@ -117,6 +130,14 @@ for i=300:samples_length
  plot(etxs)
  title("sigma")
  print -dpdf ets.pdf
+ figure
+ hold on
+ plot(p1,'r')
+ plot(p2,'g')
+ plot(p3,'b')
+ plot(p4,'y')
+ hold off
+ print -dpdf P.pdf
  
  wavwrite(outsamples,fs,'out.wav')
  en=time();
