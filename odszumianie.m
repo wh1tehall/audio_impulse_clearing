@@ -65,7 +65,11 @@ for i=p:samples_length
       P=P-(Px*x*P)/(1+x*Px);
   else
     if eta^2>(10*ets)^2%(0.02)^2
-      outsamples(i)= (outsamples(i-1)+samples(i+3))/2;
+	  ipom=i+3
+	  if ipom>samples_length
+		ipom=samples_length
+	  endif
+      outsamples(i)= (outsamples(i-1)+samples(ipom))/2;
     else
    
 	  mt=(mt+y)/2;
