@@ -80,6 +80,10 @@ for i=p:samples_length
       P=(P-(Px*x*P)/(1+x*Px))/lambda;
     endif
   endif
+  %dziwny sposób na pranie:P
+  if (ets=0)
+	ets=0.01
+  endif
   tt(i)=time()-tt(i-1);
  endfor
  plot(et);
