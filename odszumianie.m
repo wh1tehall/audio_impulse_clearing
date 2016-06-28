@@ -64,7 +64,7 @@ for i=p:samples_length
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
   else
-    if eta^2>(0.06)^2 || eta^2>(3*ets)^2
+    if eta^2>(0.04)^2
       outsamples(i)= outsamples(i-1);
     else
    
@@ -109,6 +109,6 @@ for i=p:samples_length
  title("sigma")
  print -dpdf ets.pdf
  
- #wavwrite(outsamples,fs,'out.wav')
+ wavwrite(outsamples,fs,'out.wav')
  en=time();
  (en-start)/60
