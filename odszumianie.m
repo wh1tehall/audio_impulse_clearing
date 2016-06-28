@@ -1,3 +1,4 @@
+###BEST OUTCOME UP TO THIS POINT - BASE TO REVERT###
 start=time();
 [samples,fs] = wavread("03.wav");
 samples_length = length(samples);
