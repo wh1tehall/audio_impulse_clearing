@@ -64,7 +64,7 @@ for i=p:samples_length
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
   else
-    if eta^2>(10*ets)^2%(0.02)^2
+    if eta^2>(5*ets)^2%(0.02)^2
 	  ipom=i+3
 	  if ipom>samples_length
 		ipom=samples_length
