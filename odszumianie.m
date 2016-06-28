@@ -64,7 +64,7 @@ for i=p:samples_length
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
   else
-    if eta^2>(0.01)^2
+    if eta^2>(0.02)^2
       outsamples(i)= (outsamples(i-1)+samples(i+3))/2;
     else
    
