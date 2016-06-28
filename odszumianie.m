@@ -38,7 +38,7 @@ for i=1:p
 endfor
 999999*P
  
-for i=p:samples_length
+for i=p:300
  
   y=samples(i);
  
@@ -50,7 +50,7 @@ for i=p:samples_length
   et(i)=eta;
   etx(i)=etm;
   etxs(i)=ets;
-  if (i<300)
+
     outsamples(i)=y;
    
     mt=(mt+y)/2
@@ -63,7 +63,9 @@ for i=p:samples_length
       k=(Px)/(1+x*Px);
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
-  else
+endfor
+
+for i=300:samples_length
     if eta^2>(2*etm)^2%(0.02)^2
 	  ipom=i+3
 	  if ipom>samples_length
@@ -84,9 +86,6 @@ for i=p:samples_length
       w=w+k'*eta;
       P=(P-(Px*x*P)/(1+x*Px))/lambda;
     endif
-  endif
-
-
   tt(i)=time()-tt(i-1);
  endfor
  plot(et);
