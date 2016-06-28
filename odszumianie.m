@@ -49,7 +49,7 @@ for i=p:samples_length
   et(i)=eta;
   etx(i)=etm;
   etxs(i)=ets;
-  if (i<100)
+  if (i<300)
     outsamples(i)=y;
    
     mt=(mt+y)/2
