@@ -64,7 +64,7 @@ for i=p:samples_length
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
   else
-    if eta^2>(0.06)^2%(3*ets)^2
+    if eta^2>(3*ets)^2
       outsamples(i)= outsamples(i-1);
     else
    
@@ -81,34 +81,34 @@ for i=p:samples_length
       P=(P-(Px*x*P)/(1+x*Px))/lambda;
     endif
   endif
-  %dziwny sposób na pranie:P
+
 
   tt(i)=time()-tt(i-1);
  endfor
- % plot(et);
- % title("eta")
- % print -dpdf eta.pdf
- % figure();
- % plot(samples);
- % title("oryginal");
- % print -dpdf org.pdf
- % figure()
- % plot(outsamples);
- % title("Wynik");
- % print -dpdf out.pdf
- % figure();
- % plot(etx);
- % print -dpdf etasr.pdf
- % title("blad sredni");
- % figure()
- % plot(tt)
- % title("czas wykonania")
- % print -dpdf tt.pdf
- % figure()
- % plot(etxs)
- % title("sigma")
- % print -dpdf ets.pdf
+ plot(et);
+ title("eta")
+ print -dpdf eta.pdf
+ figure();
+ plot(samples);
+ title("oryginal");
+ print -dpdf org.pdf
+ figure()
+ plot(outsamples);
+ title("Wynik");
+ print -dpdf out.pdf
+ figure();
+ plot(etx);
+ print -dpdf etasr.pdf
+ title("blad sredni");
+ figure()
+ plot(tt)
+ title("czas wykonania")
+ print -dpdf tt.pdf
+ figure()
+ plot(etxs)
+ title("sigma")
+ print -dpdf ets.pdf
  
- wavwrite(outsamples,fs,'out.wav')
+ #wavwrite(outsamples,fs,'out.wav')
  en=time();
  (en-start)/60
