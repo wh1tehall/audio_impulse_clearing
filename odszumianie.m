@@ -63,7 +63,7 @@ for i=p:samples_length
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
   else
-    if sqrt(eta^2)>3*ets
+    if eta^2>(3*ets)^2
       outsamples(i)= outsamples(i-1);
     else
    
@@ -81,9 +81,7 @@ for i=p:samples_length
     endif
   endif
   %dziwny sposób na pranie:P
-  if (ets=0)
-	ets=0.01
-  endif
+
   tt(i)=time()-tt(i-1);
  endfor
  plot(et);
