@@ -56,7 +56,7 @@ for i=p:samples_length
       w=w+k'*eta;
       P=P-(Px*x*P)/(1+x*Px);
   else
-    if sqrt(eta^2)>0.06
+    if sqrt(eta^2)>3*etm
       outsamples(i)= samples(i-1);
     else
    
@@ -94,4 +94,4 @@ for i=p:samples_length
  title("czas wykonania")
  #wavwrite(outsamples,fs,'out.wav')
  en=time();
- en-start
+ (en-start)/60
