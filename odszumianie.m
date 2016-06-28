@@ -66,7 +66,7 @@ for i=p:300
 endfor
 
 for i=300:samples_length
-    if eta^2>(2*etm)^2%(0.02)^2
+    if eta^2>(0.02)^2
 	  ipom=i+3
 	  if ipom>samples_length
 		ipom=samples_length
