@@ -98,8 +98,9 @@ for i=p:samples_length
  title("czas wykonania")
  print -dpdf tt.pdf
  figure()
- plot(tt)
- title("czas wykonania")
+ plot(ets)
+ title("sigma")
+ print -dpdf ets.pdf
  
  #wavwrite(outsamples,fs,'out.wav')
  en=time();
