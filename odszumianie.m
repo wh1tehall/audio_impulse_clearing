@@ -11,6 +11,7 @@ yr=0; #wyjście r
 yp=zeros(lp);
 et=samples*0;
 etx=samples*0;
+etxs=samples*0;
 tt=samples*0;
 outsamples=samples*0;
 etm=sqrt(samples(1)^2)
@@ -43,8 +44,9 @@ for i=p:samples_length
   x=pom;
   out=x*w';
   eta=y-out;
-  et(i)=sqrt(eta^2);
+  et(i)=eta;
   etx(i)=etm;
+  etxs(i)=ets;
   if (i<100)
     outsamples(i)=y;
    
@@ -94,6 +96,11 @@ for i=p:samples_length
  figure()
  plot(tt)
  title("czas wykonania")
+ print -dpdf tt.pdf
+ figure()
+ plot(tt)
+ title("czas wykonania")
+ 
  #wavwrite(outsamples,fs,'out.wav')
  en=time();
  (en-start)/60
