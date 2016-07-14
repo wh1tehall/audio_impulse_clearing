@@ -77,7 +77,7 @@ for i=300:samples_length
 	  etx(i)=etm;
 	  etxs(i)=mt;
 	  
-    if eta>3*mt && i+3<samples_length #eta^2>(0.02)^2
+    if eta^2>(3*mt)^2 && i+3<samples_length #eta^2>(0.02)^2
       outsamples(i)= 0.75*(outsamples(i-1)+0.25*samples(i+3));
     else
    
