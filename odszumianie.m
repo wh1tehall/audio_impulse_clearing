@@ -18,12 +18,12 @@ mt=samples*0;
 outsamples=samples*0;
 etm=sqrt(samples(1)^2)
 ets=sqrt(samples(1)^2);
-mt=0.01;
+mt=0.02;
 outsamples=[zeros(1,lp)]
 tt(p-2)=start;
 tt(p-1)=time()-start;
 lambda=0.95
-alf=0.9;
+alf=0.99;
  
 P=[];
 for i=1:p
