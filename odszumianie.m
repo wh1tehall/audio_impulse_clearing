@@ -50,7 +50,7 @@ for i=p:300
   eta=y-out;
   et(i)=eta;
   etx(i)=etm;
-  etxs(i)=ets;
+  etxs(i)=mt;
   
   outsamples(i)=y;
    
@@ -75,7 +75,7 @@ for i=300:samples_length
 	  eta=y-out;
 	  et(i)=eta;
 	  etx(i)=etm;
-	  etxs(i)=ets;
+	  etxs(i)=mt;
 	  
     if eta>3*mt && i+3<samples_length #eta^2>(0.02)^2
       outsamples(i)= 0.75*(outsamples(i-1)+0.25*samples(i+3));
